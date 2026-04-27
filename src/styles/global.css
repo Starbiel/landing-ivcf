@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@import "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap";
+
+@theme {
+  /* --- Cores Extraídas da Imagem --- */
+  /* O azul profundo do fundo principal */
+  --color-deep-blue: #0a1121;
+
+  /* O fundo ligeiramente mais claro dos cartões e cabeçalho */
+  --color-surface-dark: #101931;
+
+  /* A cor vibrante do ícone do logotipo e detalhes */
+  --color-accent-cyan: #4a9fff;
+
+  /* Branco puro para os títulos principais */
+  --color-text-pure-white: #ffffff;
+
+  /* Off-white para o corpo do texto e links (mais confortável) */
+  --color-text-off-white: #dde3eb;
+
+  /* Uma cor de borda sutil, se você decidir usar bordas nos cartões */
+  --color-border-card: #202a45;
+
+  /* --- Tipografia --- */
+  /* Definir a família da fonte sans-serif como Inter */
+  --font-sans: "Inter", sans-serif;
+
+  /* --- Tamanhos de Texto Sugeridos baseados no Layout --- */
+  /* Título Principal (Hero) */
+  --font-size-hero: 4rem;
+
+  /* Título de Seção */
+  --font-size-section-title: 2.25rem;
+
+  /* Corpo do Hero (Texto maior) */
+  --font-size-hero-body: 1.125rem;
+
+  /* Corpo Padrão (Texto dos cartões) */
+  --font-size-body: 1rem;
+
+  /* Links e Texto Pequeno */
+  --font-size-small: 0.875rem;
+}
+
+/* Configurações básicas padrão */
+@layer base {
+  body {
+    background-color: var(--color-deep-blue);
+    color: var(--color-text-off-white);
+    font-family: var(--font-sans);
+    @apply antialiased; /* Suavização de fonte (opcional, mas bom) */
+  }
+
+  h1 {
+    color: var(--color-text-pure-white);
+    font-size: var(--font-size-hero);
+    font-weight: 700;
+  }
+
+  h2 {
+    color: var(--color-text-pure-white);
+    font-size: var(--font-size-section-title);
+    font-weight: 700;
+  }
+}
