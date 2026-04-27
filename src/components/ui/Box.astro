@@ -17,18 +17,18 @@ interface Props {
 	elevated?: boolean;
 	fullHeight?: boolean;
 	padding?: 'none' | 'sm' | 'md' | 'lg';
-	radius?: 'md' | 'lg' | 'xl' | '2xl';
+	radius?: 'md' | 'lg' | 'xl' | '2xl' | "none";
 	tone?: 'surface' | 'glass' | 'ghost';
 }
 
 const {
 	as: Tag = 'div',
 	class: className,
-	border = true,
+	border = false,
 	elevated = false,
 	fullHeight = false,
 	padding = 'md',
-	radius = 'xl',
+	radius = 'none',
 	tone = 'surface',
 } = Astro.props as Props;
 
@@ -50,6 +50,7 @@ const radiusClasses = {
 	lg: 'rounded-2xl',
 	xl: 'rounded-[1.75rem]',
 	'2xl': 'rounded-[2rem]',
+	'none': 'rounded-none',
 };
 
 const classes = [
