@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+
+import Box from "../components/ui/Box.astro";
 import { Image } from 'astro:assets';
 import Logo from "../assets/images/logo.png";
 import Hero from "../components/sections/Hero.astro";
@@ -38,4 +40,17 @@ import Benefits from "../components/sections/Benefits.astro";
 	<Features />
 	<HowItWorks />
 	<Benefits />
+
+	<Box as="footer" class="flex justify-center mx-auto w-full px-6 py-10 lg:px-10 lg:py-12">
+		<div class="max-w-7xl w-full flex flex-col items-center gap-4 lg:flex-row lg:justify-between lg:items-center">
+			<div class="text-center lg:text-left text-sm text-text-off-white space-y-1">
+				<div>&copy; 2026 IVCF. Uso de domínio público.</div>
+				<div class="text-xs text-text-off-white/70">Os dados inseridos não são de nossa responsabilidade.</div>
+			</div>
+
+			<div class="flex items-center gap-3">
+				<a href="http://200.236.3.109/" target="_blank" rel="noopener noreferrer" class="rounded-full bg-accent-cyan px-4 py-2 text-sm font-semibold text-deep-blue hover:opacity-90">Acessar o sistema</a>
+			</div>
+		</div>
+	</Box>
 </main>

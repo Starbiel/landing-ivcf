@@ -13,6 +13,7 @@ type BoxAs =
 interface Props {
 	as?: BoxAs;
 	class?: string;
+    id?: string;
 	border?: boolean;
 	elevated?: boolean;
 	fullHeight?: boolean;
@@ -23,6 +24,7 @@ interface Props {
 
 const {
 	as: Tag = 'div',
+    id,
 	class: className,
 	border = false,
 	elevated = false,
@@ -67,6 +69,6 @@ const classes = [
 	.join(' ');
 ---
 
-<Tag class={classes}>
+<Tag class={classes} id={id}>
 	<slot />
 </Tag>

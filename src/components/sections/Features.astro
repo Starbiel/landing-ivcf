@@ -1,9 +1,11 @@
 ---
+import Box from "../ui/Box.astro";
 import Card from "../ui/Card.astro";
 import Typography from "../ui/Typography.astro";
 ---
 
-<section id="funcionalidades" class="mx-auto w-full max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
+<Box as="section" id="funcionalidades" class="flex-col justify-center items-center mx-auto w-full px-6 py-16 lg:px-10 lg:py-20">
+    <Box class="max-w-7xl mx-auto">
 	<div class="mb-8 max-w-2xl space-y-3">
 		<Typography variant="caption">Funcionalidades</Typography>
 		<Typography as="h2" variant="h2">Componentes pensados para reutilização real.</Typography>
@@ -18,4 +20,5 @@ import Typography from "../ui/Typography.astro";
 		<Card title="Typography" description="Sistema de texto com variantes semânticas e consistência visual." />
 		<Card title="Seções" description="Blocos da landing organizados para leitura contínua em uma única página." />
 	</div>
-</section>
+    </Box>
+</Box>
