@@ -1,0 +1,84 @@
+---
+type TypographyTag = 'p' | 'span' | 'div' | 'small' | 'strong' | 'em' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+
+type TypographyVariant = 'display' | 'h1' | 'h2' | 'h3' | 'body' | 'body-lg' | 'small' | 'caption' | 'eyebrow';
+
+interface Props {
+	as?: TypographyTag;
+	class?: string;
+	variant?: TypographyVariant;
+	tone?: 'default' | 'muted' | 'accent' | 'white';
+	weight?: 'normal' | 'medium' | 'semibold' | 'bold';
+}
+
+const {
+	as,
+	class: className,
+	variant = 'body',
+	tone = 'default',
+	weight,
+} = Astro.props as Props;
+
+const variantMap: Record<TypographyVariant, { tag: TypographyTag; classes: string }> = {
+	display: {
+		tag: 'h1',
+		classes: 'text-[clamp(2.75rem,7vw,5rem)] leading-[0.95] tracking-[-0.05em] font-bold text-text-pure-white',
+	},
+	h1: {
+		tag: 'h1',
+		classes: 'text-[clamp(2.25rem,5vw,4rem)] leading-tight tracking-[-0.04em] font-bold text-text-pure-white',
+	},
+	h2: {
+		tag: 'h2',
+		classes: 'text-[clamp(1.75rem,3vw,2.75rem)] leading-tight tracking-[-0.035em] font-bold text-text-pure-white',
+	},
+	h3: {
+		tag: 'h3',
+		classes: 'text-2xl leading-tight tracking-[-0.03em] font-semibold text-text-pure-white',
+	},
+	body: {
+		tag: 'p',
+		classes: 'text-base leading-7 text-text-off-white',
+	},
+	'body-lg': {
+		tag: 'p',
+		classes: 'text-lg leading-8 text-text-off-white',
+	},
+	small: {
+		tag: 'small',
+		classes: 'text-sm leading-6 text-text-off-white/80',
+	},
+	caption: {
+		tag: 'p',
+		classes: 'text-xs uppercase tracking-[0.24em] text-accent-cyan',
+	},
+	eyebrow: {
+		tag: 'p',
+		classes: 'text-xs font-semibold uppercase tracking-[0.26em] text-accent-cyan',
+	},
+};
+
+const toneMap = {
+	default: '',
+	muted: 'text-text-off-white/80',
+	accent: 'text-accent-cyan',
+	white: 'text-text-pure-white',
+};
+
+const weightMap = {
+	normal: 'font-normal',
+	medium: 'font-medium',
+	semibold: 'font-semibold',
+	bold: 'font-bold',
+};
+
+const resolved = variantMap[variant];
+const Tag = as ?? resolved.tag;
+const classes = [resolved.classes, toneMap[tone], weight ? weightMap[weight] : '', className ?? '']
+	.filter(Boolean)
+	.join(' ');
+---
+
+<Tag class={classes}>
+	<slot />
+</Tag>

@@ -1,0 +1,71 @@
+---
+type BoxAs =
+	| 'div'
+	| 'section'
+	| 'article'
+	| 'aside'
+	| 'main'
+	| 'header'
+	| 'footer'
+	| 'nav'
+	| 'li';
+
+interface Props {
+	as?: BoxAs;
+	class?: string;
+	border?: boolean;
+	elevated?: boolean;
+	fullHeight?: boolean;
+	padding?: 'none' | 'sm' | 'md' | 'lg';
+	radius?: 'md' | 'lg' | 'xl' | '2xl';
+	tone?: 'surface' | 'glass' | 'ghost';
+}
+
+const {
+	as: Tag = 'div',
+	class: className,
+	border = true,
+	elevated = false,
+	fullHeight = false,
+	padding = 'md',
+	radius = 'xl',
+	tone = 'surface',
+} = Astro.props as Props;
+
+const toneClasses = {
+	surface: 'bg-surface-dark/95 text-text-off-white',
+	glass: 'bg-white/5 text-text-off-white backdrop-blur-md',
+	ghost: 'bg-transparent text-text-off-white',
+};
+
+const paddingClasses = {
+	none: 'p-0',
+	sm: 'p-4',
+	md: 'p-6',
+	lg: 'p-8',
+};
+
+const radiusClasses = {
+	md: 'rounded-xl',
+	lg: 'rounded-2xl',
+	xl: 'rounded-[1.75rem]',
+	'2xl': 'rounded-[2rem]',
+};
+
+const classes = [
+	'transition-colors duration-200',
+	toneClasses[tone],
+	paddingClasses[padding],
+	radiusClasses[radius],
+	border ? 'border border-border-card/80' : '',
+	elevated ? 'shadow-[0_24px_80px_rgba(3,8,24,0.32)]' : '',
+	fullHeight ? 'h-full' : '',
+	className ?? '',
+]
+	.filter(Boolean)
+	.join(' ');
+---
+
+<Tag class={classes}>
+	<slot />
+</Tag>
