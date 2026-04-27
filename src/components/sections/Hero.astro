@@ -20,20 +20,30 @@ const images = [
 
 <Box as="section" class="flex justify-center mx-auto w-full px-6 py-20 lg:px-10 lg:py-28">
     <Box class="max-w-7xl" >
-	<div class="gap-10 lg:items-center">
-		<div class="space-y-6 mb-10">
+        <div class="gap-10 lg:items-center">
+            <div class="space-y-6 mb-10">
 
-            <Box class="flex flex-col items-center text-center mx-auto w-full max-w-3xl gap-6">
-                <Typography as="h1" variant="display">
-                    IVCF-20 Digital
-                </Typography>
-                <Typography variant="body-lg" tone="muted">
-                    Tecnologia avançada para o diagnóstico da fragilidade. 
-                    Visualize indicadores clínicos complexos de forma clara, 
-                    contínua e integrada ao fluxo de trabalho do seu laboratório.
-                </Typography>
-            </Box>
-		</div>
-	</div>
-    <Carrossel items={images} aspectRatio="wide" /></Box>
+                <Box class="flex flex-col items-center text-center mx-auto w-full max-w-3xl gap-6">
+                    <Typography as="h1" variant="display">
+                        IVCF-20 Digital
+                    </Typography>
+                    <Typography variant="body-lg" tone="muted">
+                        Tecnologia avançada para o diagnóstico da fragilidade. 
+                        Visualize indicadores clínicos complexos de forma clara, 
+                        contínua e integrada ao fluxo de trabalho do seu laboratório.
+                    </Typography>
+                </Box>
+            </div>
+        </div>
+        <Carrossel items={images} aspectRatio="wide" />
+
+        <Box class="flex flex-col items-center text-center mx-auto w-full max-w-3xl gap-6 mt-10">
+            <Typography variant="body-lg" tone="muted">
+                O IVCF-20 Digital é a evolução natural do protocolo tradicional, 
+                trazendo agilidade, precisão e uma experiência de usuário otimizada 
+                para profissionais de saúde que buscam excelência no cuidado geriátrico.
+            </Typography>
+
+        </Box>
+    </Box>
 </Box>

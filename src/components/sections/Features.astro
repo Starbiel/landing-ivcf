@@ -1,24 +1,134 @@
 ---
 import Box from "../ui/Box.astro";
-import Card from "../ui/Card.astro";
 import Typography from "../ui/Typography.astro";
+import { Image } from "astro:assets";
+
+import CreateQuestionnaire from "../../assets/images/exec_questionnaire.jpg";
+import VisualizeResults from "../../assets/images/result_questionnaire.jpg";
+import ParticipantChart from "../../assets/images/participant_web_chart.jpg";
+import DashboardChart from "../../assets/images/dots_chart.jpg"; 
+
+const steps = [
+	{
+		number: "01",
+		eyebrow: "1. Criar avaliação",
+		title: "Estrutura pronta para iniciar o acompanhamento do paciente.",
+		body: "A jornada começa com o questionário configurado de forma objetiva para reduzir atrito na coleta.",
+		accent: "bg-accent-cyan",
+	},
+	{
+		number: "02",
+		eyebrow: "2. Calcular em tempo real",
+		title: "Resultados atualizados e calculados instantaneamente.",
+		body: "As respostas alimentam o sistema em tempo real, permitindo cálculo automático sem etapas manuais.",
+		accent: "bg-accent-cyan/80",
+	},
+	{
+		number: "03",
+		eyebrow: "3. Indicadores por participante",
+		title: "Perfil analítico individual com gráficos e métricas próprias.",
+		body: "Cada participante possui seus próprios indicadores visuais, facilitando o acompanhamento longitudinal.",
+		accent: "bg-accent-cyan/70",
+	},
+	{
+		number: "04",
+		eyebrow: "4. Filtrar, exportar e visualizar",
+		title: "Gestão completa com filtros, recortes e dashboard executivo.",
+		body: "A equipe segmenta informações, exporta resultados e acessa o painel consolidado para tomada de decisão.",
+		accent: "bg-accent-cyan/55",
+	},
+];
+
+const images = [
+	{
+		src: CreateQuestionnaire,
+		alt: "Tela de criação do questionário",
+		label: "Entrada de dados",
+		description: "Uma interface clara para iniciar o fluxo com agilidade.",
+	},
+	{
+		src: VisualizeResults,
+		alt: "Painel de visualização de resultados",
+		label: "Resultados em tempo real",
+		description: "Os dados são atualizados e calculados automaticamente conforme o preenchimento.",
+	},
+	{
+		src: ParticipantChart,
+		alt: "Gráfico de indicadores do participante",
+		label: "Indicadores individuais",
+		description: "Visualização detalhada do perfil de cada participante com seus próprios gráficos e métricas.",
+		featured: true,
+	},
+	{
+		src: DashboardChart,
+		alt: "Dashboard analítico com gráficos",
+		label: "Dashboard analítico",
+		description: "Painel final para leitura rápida, filtros e exportação dos dados.",
+	},
+];
 ---
 
-<Box as="section" id="funcionalidades" class="flex-col justify-center items-center mx-auto w-full px-6 py-16 lg:px-10 lg:py-20">
-    <Box class="max-w-7xl mx-auto">
-	<div class="mb-8 max-w-2xl space-y-3">
-		<Typography variant="caption">Funcionalidades</Typography>
-		<Typography as="h2" variant="h2">Componentes pensados para reutilização real.</Typography>
-		<Typography variant="body" tone="muted">
-			A base visual usa os mesmos tokens para manter consistência entre blocos de texto, destaque e cartões.
-		</Typography>
-	</div>
+<Box as="section" id="funcionalidades" class="mx-auto w-full px-6 py-16 lg:px-10 lg:py-20">
+	<Box class="mx-auto max-w-7xl space-y-10 p-6 lg:p-10" tone="surface">
+		<div class="max-w-3xl space-y-4">
+			<Typography variant="caption">Funcionalidades</Typography>
+			<Typography as="h2" variant="h2">Um fluxo clínico completo, apresentado na ordem certa.</Typography>
+			<Typography variant="body" tone="muted">
+				Do preenchimento do questionário até a leitura final no dashboard, o sistema organiza os dados em tempo real,
+				calcula os resultados automaticamente e mantém o caminho de uso claro para a equipe.
+			</Typography>
+		</div>
 
-	<div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-		<Card title="Box" description="Contêiner estilizado com variações de tom, borda, padding e raio." />
-		<Card title="Card" description="Bloco pronto para destacar argumentos, métricas e chamadas." />
-		<Card title="Typography" description="Sistema de texto com variantes semânticas e consistência visual." />
-		<Card title="Seções" description="Blocos da landing organizados para leitura contínua em uma única página." />
-	</div>
-    </Box>
+		<div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+			<!-- Steps -->
+			<div class="grid gap-4">
+				{steps.map((step) => (
+					<Box tone="glass" border elevated class="relative overflow-hidden p-5 lg:p-6">
+						<div class={`absolute left-0 top-0 h-full w-1 ${step.accent}`}></div>
+						<div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-5">
+							<div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-accent-cyan/35 bg-accent-cyan/10 text-sm font-bold text-accent-cyan">
+								{step.number}
+							</div>
+							<div class="space-y-2">
+								<Typography variant="eyebrow">{step.eyebrow}</Typography>
+								<Typography as="h3" variant="h3">{step.title}</Typography>
+								<Typography variant="body" tone="muted">{step.body}</Typography>
+							</div>
+						</div>
+					</Box>
+				))}
+			</div>
+
+			<!-- Images -->
+			<div class="grid gap-4">
+				{images.map((img) => (
+					<Box
+						tone={img.featured ? "glass" : "surface"}
+						border
+						elevated
+						class={`overflow-hidden p-3 lg:p-4 ${img.featured ? 'ring-1 ring-accent-cyan/20' : ''}`}
+					>
+						<div class={`overflow-hidden rounded-2xl border border-border-card/60 ${img.featured ? 'aspect-[16/9]' : 'aspect-[16/7]'}`}>
+							<Image
+								src={img.src}
+								alt={img.alt}
+								class="h-full w-full object-cover object-top transition-transform duration-700 hover:scale-[1.03]"
+							/>
+						</div>
+						<div class="mt-3 flex items-start justify-between gap-4 px-1 pb-1">
+							<div class="space-y-0.5">
+								<p class="text-xs uppercase tracking-[0.24em] text-accent-cyan">{img.label}</p>
+								<p class="text-sm leading-relaxed text-text-off-white/75">{img.description}</p>
+							</div>
+							{img.featured && (
+								<span class="mt-0.5 shrink-0 rounded-full border border-accent-cyan/30 bg-accent-cyan/10 px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-widest text-accent-cyan">
+									Destaque
+								</span>
+							)}
+						</div>
+					</Box>
+				))}
+			</div>
+		</div>
+	</Box>
 </Box>
