@@ -1,7 +1,10 @@
 ---
 import Box from './Box.astro';
+import { Image } from 'astro:assets';
 
-type CarouselImageSource = string | { src: string };
+// Accept strings, Astro image metadata, or dynamic imports. We relax typing to avoid
+// tight coupling with specific Astro versions in the project.
+type CarouselImageSource = string | any | Promise<any>;
 
 interface CarouselItem {
 	src: CarouselImageSource;
@@ -15,9 +18,9 @@ interface Props {
 	class?: string;
 	ariaLabel?: string;
 	aspectRatio?: 'square' | 'video' | 'wide' | 'portrait';
-	speed?: number;        // seconds to cross the full strip; default 30
-	slideWidth?: string;   // width of each slide; default '33%' (3 visible at once)
-	gap?: number;          // gap between slides in px; default 16
+	speed?: number
+	slideWidth?: string;
+	gap?: number;
 	pauseOnHover?: boolean;
 	direction?: 'left' | 'right';
 }
@@ -74,8 +77,8 @@ const resolveSrc = (source: CarouselImageSource) =>
 		data-count={slides.length}
 	>
 		<!-- fade edges -->
-		<div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-deep-blue/70 to-transparent" aria-hidden="true"></div>
-		<div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-deep-blue/70 to-transparent" aria-hidden="true"></div>
+		<div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-linear-to-r from-deep-blue/70 to-transparent" aria-hidden="true"></div>
+		<div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-linear-to-l from-deep-blue/70 to-transparent" aria-hidden="true"></div>
 
 		<div class="marquee-track flex" aria-hidden="true">
 			{repeated.map((item) => (
@@ -83,8 +86,8 @@ const resolveSrc = (source: CarouselImageSource) =>
 					class={`marquee-slide shrink-0 ${aspectClasses[aspectRatio]} overflow-hidden rounded-xl`}
 					style={`width: var(--slide-width); margin-right: var(--gap);`}
 				>
-					<img
-						src={resolveSrc(item.src)}
+					<Image
+						src={item.src}
 						alt={item.alt}
 						class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
 						loading="lazy"
@@ -92,7 +95,7 @@ const resolveSrc = (source: CarouselImageSource) =>
 						draggable="false"
 					/>
 					{(item.title || item.caption) && (
-						<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-deep-blue/85 via-deep-blue/35 to-transparent p-4 text-white">
+						<div class="absolute inset-x-0 bottom-0 bg-linear-to-t from-deep-blue/85 via-deep-blue/35 to-transparent p-4 text-white">
 							{item.caption && (
 								<p class="text-xs uppercase tracking-[0.24em] text-accent-cyan">{item.caption}</p>
 							)}
