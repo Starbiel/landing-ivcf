@@ -1,6 +1,6 @@
-@import "tailwindcss";
-
 @import "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap";
+
+@import "tailwindcss";
 
 @theme {
   /* --- Cores Extraídas da Imagem --- */
@@ -9,6 +9,7 @@
 
   /* O fundo ligeiramente mais claro dos cartões e cabeçalho */
   --color-surface-dark: #101931;
+  --color-nav-blue: #1f4375;
 
   /* A cor vibrante do ícone do logotipo e detalhes */
   --color-accent-cyan: #4a9fff;

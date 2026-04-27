@@ -1,0 +1,17 @@
+---
+import Card from "../ui/Card.astro";
+import Typography from "../ui/Typography.astro";
+---
+
+<section id="beneficios" class="mx-auto w-full max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
+	<div class="mb-8 max-w-2xl space-y-3">
+		<Typography variant="caption">Benefícios</Typography>
+		<Typography as="h2" variant="h2">A landing vira uma peça de apresentação e conversão.</Typography>
+	</div>
+
+	<div class="grid gap-6 md:grid-cols-3">
+		<Card title="Mais clareza" description="A mensagem fica legível em poucos segundos, sem fricção." />
+		<Card title="Mais confiança" description="A ordem dos blocos reforça autoridade e consistência." />
+		<Card title="Mais ação" description="O usuário encontra um caminho óbvio até o próximo passo." />
+	</div>
+</section>

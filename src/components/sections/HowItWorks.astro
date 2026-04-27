@@ -1,0 +1,18 @@
+---
+import Card from "../ui/Card.astro";
+import Typography from "../ui/Typography.astro";
+---
+
+<section id="como-funciona" class="mx-auto w-full max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
+	<div class="mb-8 max-w-2xl space-y-3">
+		<Typography variant="caption">Como funciona</Typography>
+		<Typography as="h2" variant="h2">Do contexto ao contato em quatro passos.</Typography>
+	</div>
+
+	<div class="grid gap-6 lg:grid-cols-4">
+		<Card title="1. Abertura" description="Hero com promessa clara e CTA imediato." />
+		<Card title="2. Contexto" description="Problema e solução para alinhar expectativa." />
+		<Card title="3. Credibilidade" description="Funcionalidades, benefícios e depoimentos em sequência." />
+		<Card title="4. Conversão" description="Último bloco com ação objetiva e sem distrações." />
+	</div>
+</section>

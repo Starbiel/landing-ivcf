@@ -1,0 +1,21 @@
+---
+import Card from "../ui/Card.astro";
+import Typography from "../ui/Typography.astro";
+---
+
+<section id="funcionalidades" class="mx-auto w-full max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
+	<div class="mb-8 max-w-2xl space-y-3">
+		<Typography variant="caption">Funcionalidades</Typography>
+		<Typography as="h2" variant="h2">Componentes pensados para reutilização real.</Typography>
+		<Typography variant="body" tone="muted">
+			A base visual usa os mesmos tokens para manter consistência entre blocos de texto, destaque e cartões.
+		</Typography>
+	</div>
+
+	<div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+		<Card title="Box" description="Contêiner estilizado com variações de tom, borda, padding e raio." />
+		<Card title="Card" description="Bloco pronto para destacar argumentos, métricas e chamadas." />
+		<Card title="Typography" description="Sistema de texto com variantes semânticas e consistência visual." />
+		<Card title="Seções" description="Blocos da landing organizados para leitura contínua em uma única página." />
+	</div>
+</section>

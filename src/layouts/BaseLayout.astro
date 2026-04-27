@@ -1,3 +1,45 @@
 ---
 import "../styles/global.css";
+import { Image } from 'astro:assets';
+import Logo from "../assets/images/logo.png";
+import Hero from "../components/sections/Hero.astro";
+import Problem from "../components/sections/Problem.astro";
+import Solution from "../components/sections/Solution.astro";
+import Features from "../components/sections/Features.astro";
+import HowItWorks from "../components/sections/HowItWorks.astro";
+import Benefits from "../components/sections/Benefits.astro";
+import Testimonials from "../components/sections/Testimonials.astro";
+import CTA from "../components/sections/CTA.astro";
 ---
+
+<main class="relative overflow-hidden">
+	<div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(74,159,255,0.18),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(74,159,255,0.12),transparent_28%)]"></div>
+	<div class="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:56px_56px] [mask-image:linear-gradient(to_bottom,black,transparent_92%)]"></div>
+
+	<section class="fixed flex w-full flex-col gap-6 z-200">
+		<nav class="flex justify-center top-4 z-150 border border-border-card/70 bg-nav-blue px-5 py-3 backdrop-blur-xl lg:px-10 align-middle">
+			<div class="flex flex-wrap items-center justify-between gap-20 text-sm text-black max-w-7xl w-full">
+				<a href="#topo" class="font-semibold ">
+                    <Image src={Logo} alt="IVCF" class="h-12 w-auto" />
+                </a>
+				<div class="flex flex-wrap gap-12">
+					<a href="#problema" class="text-[15px] font-medium text-text-off-white hover:text-accent-cyan transition-colors">
+                        Problema
+                    </a>
+					<a href="#solucao" class="text-[15px] font-medium text-text-off-white hover:text-accent-cyan transition-colors">Solução</a>
+					<a href="#funcionalidades" class="text-[15px] font-medium text-text-off-white hover:text-accent-cyan transition-colors">Funcionalidades</a>
+					<a href="#como-funciona" class="text-[15px] font-medium text-text-off-white hover:text-accent-cyan transition-colors">Como funciona</a>
+					<a href="#beneficios" class="text-[15px] font-medium text-text-off-white hover:text-accent-cyan transition-colors">Benefícios</a>
+				</div>
+			</div>
+		</nav>
+	</section>
+
+	<div id="topo"></div>
+	<Hero />
+	<Problem />
+	<Solution />
+	<Features />
+	<HowItWorks />
+	<Benefits />
+</main>

@@ -1,0 +1,23 @@
+---
+import Box from "../ui/Box.astro";
+import Card from "../ui/Card.astro";
+import Typography from "../ui/Typography.astro";
+---
+
+<section id="solucao" class="mx-auto w-full max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
+	<Box tone="surface" border radius="2xl" class="space-y-8 p-6 lg:p-10">
+		<div class="max-w-2xl space-y-3">
+			<Typography variant="caption">Solução</Typography>
+			<Typography as="h2" variant="h2">Uma estrutura que conduz o visitante do interesse ao contato.</Typography>
+			<Typography variant="body" tone="muted">
+				Cada seção cumpre um papel: contextualiza, explica, comprova e termina com uma ação direta.
+			</Typography>
+		</div>
+
+		<div class="grid gap-6 lg:grid-cols-3">
+			<Card title="Clareza visual" description="Blocos bem separados, contraste forte e leitura confortável em qualquer tela." />
+			<Card title="Narrativa progressiva" description="A página avança em camadas, sem pedir esforço desnecessário para entender o valor." />
+			<Card title="Conversão explícita" description="As chamadas para ação aparecem no momento certo, com contexto suficiente para gerar confiança." />
+		</div>
+	</Box>
+</section>

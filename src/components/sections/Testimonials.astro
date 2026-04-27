@@ -1,0 +1,29 @@
+---
+import Card from "../ui/Card.astro";
+import Typography from "../ui/Typography.astro";
+---
+
+<section id="depoimentos" class="mx-auto w-full max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
+	<div class="mb-8 max-w-2xl space-y-3">
+		<Typography variant="caption">Depoimentos</Typography>
+		<Typography as="h2" variant="h2">Prova social para sustentar a proposta.</Typography>
+	</div>
+
+	<div class="grid gap-6 lg:grid-cols-3">
+		<Card
+			eyebrow="Projeto"
+			title="Estrutura elegante"
+			description="A leitura ficou mais fluida e a navegação ganhou foco logo na primeira dobra."
+		/>
+		<Card
+			eyebrow="Time"
+			title="Mais consistência"
+			description="A reutilização dos componentes trouxe padrão visual para todo o sistema." 
+		/>
+		<Card
+			eyebrow="Resultado"
+			title="Mensagem objetiva"
+			description="A apresentação passou a comunicar propósito e ação com menos ruído." 
+		/>
+	</div>
+</section>
